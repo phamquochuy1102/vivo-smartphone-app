@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="26" width="26">
+  <defs>
+    <path id="path-1" opacity="1" fill-rule="evenodd" d="M10.747393316195389,20.5 C16.131197943444725,20.5 20.5,16.131425810166157 20.5,10.751603882217523 C20.5,5.371380983714439 16.131197943444725,1 10.747393316195389,1 C5.357974293059111,1 1,5.371380983714439 1,10.751603882217523 C1,16.131425810166157 5.357974293059111,20.5 10.747393316195389,20.5Z"/>
+    <path id="path-2" opacity="1" fill-rule="evenodd" d="M18.249999999999957,18.25000000000001 L25,25 "/>
+  </defs>
+  <g opacity="1">
+    <g opacity="1">
+      <use xlink:href="#path-1" fill-opacity="0" stroke="rgb(110,110,120)" stroke-opacity="1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g opacity="1">
+      <use xlink:href="#path-2" fill-opacity="0" stroke="rgb(110,110,120)" stroke-opacity="1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>
