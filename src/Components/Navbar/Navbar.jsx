@@ -54,19 +54,19 @@ const Navbar = () => {
           <i class="far fa-times-circle"></i>
         </div>
         <ul className="navbar-mobile__list">
-          <li>
+          <li onClick={closeModal}>
             <Link to="/">Trang chủ</Link>
           </li>
-          <li>
+          <li onClick={closeModal}>
             <Link to="/products">Sản phẩm</Link>
           </li>
-          <li>
+          <li onClick={closeModal}>
             <Link to="/funtouchOs">FuntouchOS</Link>
           </li>
-          <li>
+          <li onClick={closeModal}>
             <Link to="/explore">Khám phá</Link>
           </li>
-          <li>
+          <li onClick={closeModal}>
             <Link to="/support">Hỗ trợ</Link>
           </li>
         </ul>
