@@ -13,7 +13,7 @@ const CarouselComponent = () => {
     <div>
       <Carousel activeIndex={index} onSelect={handleSelect} interval={2000}>
         <Carousel.Item>
-          <picture className="intro__background">
+          <picture className="carousel__image">
             <source
               media="(max-width:767px)"
               srcset="https://www.vivosmartphone.vn/uploads/home/banner-Y72-vertical%20.jpg"
@@ -22,7 +22,7 @@ const CarouselComponent = () => {
           </picture>
         </Carousel.Item>
         <Carousel.Item>
-          <picture className="intro__background">
+          <picture className="carousel__image">
             <source
               media="(max-width:767px)"
               srcset="https://www.vivosmartphone.vn/uploads/home/Banner-ban-do-yeu-thuong-1080-1957.jpg"
@@ -31,7 +31,7 @@ const CarouselComponent = () => {
           </picture>
         </Carousel.Item>
         <Carousel.Item>
-          <picture className="intro__background">
+          <picture className="carousel__image">
             <source
               media="(max-width:767px)"
               srcset="https://www.vivosmartphone.vn/uploads/MANGOADS/banner/x60pro_vertical.jpg"

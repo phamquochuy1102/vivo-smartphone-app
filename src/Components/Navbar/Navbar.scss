@@ -28,6 +28,7 @@
             weight: 500;
           }
           line-height: 18px;
+          transition: 0.5s ease-in-out;
           &:hover {
             opacity: 0.8;
           }
@@ -49,6 +50,7 @@
     }
     line-height: 20px;
     cursor: pointer;
+    transition: 0.5s ease-in-out;
     &:hover {
       opacity: 0.8;
     }
@@ -61,6 +63,8 @@
     }
     line-height: 20px;
     cursor: pointer;
+    transition: 0.5s ease-in-out;
+
     &:hover {
       opacity: 0.8;
     }
@@ -111,6 +115,8 @@
             weight: 500;
           }
           line-height: 20px;
+          transition: 0.5s ease-in-out;
+
           &:hover {
             opacity: 0.8;
           }
