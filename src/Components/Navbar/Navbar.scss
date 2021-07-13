@@ -1,0 +1,119 @@
+@import "./../../scss/mixins.scss";
+
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+  align-items: center;
+  background-color: black;
+  padding: 16px 0;
+  .navbar-logo {
+    img {
+      cursor: pointer;
+    }
+  }
+  .navbar-list {
+    ul {
+      display: flex;
+      list-style: none;
+
+      li {
+        margin: 0 20px;
+        a {
+          color: white;
+          text-decoration: none;
+          font: {
+            size: 18px;
+            weight: 500;
+          }
+          line-height: 18px;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    @include mobile {
+      display: none;
+    }
+    @include tablet {
+      display: none;
+    }
+  }
+  .navbar-search {
+    color: white;
+    font: {
+      size: 20px;
+      weight: 500;
+    }
+    line-height: 20px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .navbar-list__mobile {
+    color: white;
+    font: {
+      size: 20px;
+      weight: 500;
+    }
+    line-height: 20px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+    display: none;
+    @include mobile {
+      display: block;
+    }
+    @include tablet {
+      display: block;
+    }
+  }
+  .navbar-mobile__modal {
+    color: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.753);
+    display: none;
+    .navbar-mobile__close {
+      z-index: 2;
+      cursor: pointer;
+      font: {
+        size: 25px;
+        weight: 500;
+      }
+      line-height: 20px;
+      margin-left: 10%;
+      margin-top: 20px;
+    }
+    .navbar-mobile__list {
+      margin-top: 50px;
+      z-index: 2;
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      li {
+        padding: 20px 0px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.411);
+        a {
+          font: {
+            size: 20px;
+            weight: 500;
+          }
+          line-height: 20px;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}
