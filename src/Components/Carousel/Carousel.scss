@@ -1,0 +1,18 @@
+.intro__background img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("https://www.shareicon.net/data/2015/08/19/87501_left_512x512.png") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("https://icon-library.com/images/next-arrow-icon/next-arrow-icon-15.jpg") !important;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 30px !important;
+  height: 30px !important;
+}
