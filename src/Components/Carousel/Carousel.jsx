@@ -11,7 +11,7 @@ const CarouselComponent = () => {
   };
   return (
     <div>
-      <Carousel activeIndex={index} onSelect={handleSelect} interval={2000}>
+      <Carousel activeIndex={index} onSelect={handleSelect} interval={3000}>
         <Carousel.Item>
           <picture className="carousel__image">
             <source
