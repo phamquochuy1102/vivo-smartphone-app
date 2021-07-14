@@ -1,0 +1,80 @@
+@import "./../../scss/mixins.scss";
+
+.explore-container {
+  padding: 20px;
+  @include mobile {
+    padding: 10px;
+  }
+  .explore-above {
+    background-image: url("./../../BGImages/su-kien-ra-mat-san-pham-vivo-v20-1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 600px;
+    position: relative;
+    @include mobile {
+      height: 500px;
+    }
+    &__content {
+      position: absolute;
+      z-index: 3;
+      color: white;
+      text-align: center;
+      left: 50%;
+      top: 10%;
+      transform: translateX(-50%);
+      @include mobile {
+        width: 80%;
+      }
+      h2 {
+        font: {
+          size: 35px;
+          weight: 600;
+        }
+        line-height: 35px;
+        @include mobile {
+          font: {
+            size: 28px;
+            weight: 600;
+          }
+          line-height: 28px;
+          margin-bottom: 20px;
+        }
+      }
+      p {
+        font-size: 20px;
+        @include mobile {
+          font: {
+            size: 16px;
+            weight: 500;
+          }
+          line-height: 16px;
+        }
+      }
+      button {
+        padding: 8px 22px;
+        border-radius: 40px;
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+        transition: 0.5s ease-in-out;
+        font-size: 18px;
+        &:hover {
+          background-color: rgb(1, 77, 219);
+        }
+        @include mobile {
+          font-size: 14px;
+          padding: 6px 18px;
+        }
+      }
+    }
+    &__overlay {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.527);
+      z-index: 2;
+    }
+  }
+}
