@@ -44,8 +44,11 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-search">
-        <i class="fas fa-search"></i>
+      <div className="navbar-cart">
+        <Link to="/cart">
+          {" "}
+          <i class="fas fa-shopping-cart"></i>{" "}
+        </Link>
       </div>
 
       {/* Mobile modal  */}
