@@ -43,16 +43,18 @@
     }
   }
   .navbar-cart {
-    color: white;
-    font: {
-      size: 20px;
-      weight: 500;
-    }
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-    &:hover {
-      opacity: 0.8;
+    a {
+      color: white;
+      font: {
+        size: 20px;
+        weight: 500;
+      }
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.5s ease-in-out;
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
   .navbar-list__mobile {
@@ -117,7 +119,7 @@
           }
           line-height: 20px;
           transition: 0.5s ease-in-out;
-
+          color: white;
           &:hover {
             opacity: 0.8;
           }
