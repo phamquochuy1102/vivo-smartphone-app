@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/* Mixin */
+/* Set các giá trị với màn hình tương ứng */
+.product-container {
+  -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 25px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+@media (max-width: 479px) {
+  .product-container {
+    padding: 20px;
+  }
+}
+
+.product-container img {
+  height: 200px;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.product-container img:hover {
+  -webkit-transform: translate(0, -10%);
+          transform: translate(0, -10%);
+}
+
+@media (max-width: 479px) {
+  .product-container img {
+    height: 160px;
+  }
+}
+
+.product-container p {
+  margin: 0;
+}
+
+.product-container .product-name {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.product-container .product-price {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+.product-container .product-gift {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 15px;
+}
+
+.product-container .product-oldPrice {
+  text-decoration: line-through;
+  font-style: italic;
+  color: gray;
+  margin: 5px 0;
+}
+
+.product-container .product-order {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.product-container .product-order button {
+  padding: 5px 30px;
+  border-radius: 40px;
+  background-color: #014ddb;
+  color: white;
+  border: 1px solid white;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  font-size: 18px;
+}
+
+.product-container .product-order button:hover {
+  opacity: 0.8;
+  color: white;
+  border-color: white;
+}
+
+@media (max-width: 479px) {
+  .product-container .product-order button {
+    font-size: 14px;
+    padding: 6px 18px;
+  }
+}
+/*# sourceMappingURL=Product.css.map */
