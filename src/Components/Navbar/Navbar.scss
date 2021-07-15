@@ -8,6 +8,9 @@
   background-color: black;
   padding: 16px 0;
   width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
   .navbar-logo {
     img {
       cursor: pointer;

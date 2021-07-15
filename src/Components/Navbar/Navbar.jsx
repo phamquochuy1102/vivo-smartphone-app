@@ -20,10 +20,13 @@ const Navbar = () => {
         <i class="fas fa-stream"></i>
       </div>
       <div className="navbar-logo">
-        <img
-          src="https://www.vivosmartphone.vn/themes/vivo/img/logo.svg"
-          alt="logo"
-        />
+        <Link to="/">
+          {" "}
+          <img
+            src="https://www.vivosmartphone.vn/themes/vivo/img/logo.svg"
+            alt="logo"
+          />
+        </Link>
       </div>
       <div className="navbar-list">
         <ul>
