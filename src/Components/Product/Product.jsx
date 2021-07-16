@@ -49,7 +49,7 @@ const Product = ({ product }) => {
       <p className="product-oldPrice">Giá gốc: {oldPrice}₫</p>
       <p className="product-gift">Quà tặng 200.000đ</p>
       <div className="product-order">
-        <button>Đặt mua</button>
+        <button>Xem chi tiết</button>
       </div>
     </div>
   );

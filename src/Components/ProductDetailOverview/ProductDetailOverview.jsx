@@ -2,16 +2,17 @@ import React from "react";
 import { useLocation } from "react-router";
 import "./ProductDetailOverview.scss";
 import ReactImageZoom from "react-image-zoom";
+import { useState } from "react";
 
 export const ProductDetailOverview = () => {
   const { state } = useLocation();
   const { image, name, price, oldPrice } = state;
   const props = { height: 500, zoomWidth: 300, img: image };
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <div className="product-detail">
       <div className="product-detail__image">
-        {/* <img src={image} alt="product" /> */}
         <ReactImageZoom {...props} />
       </div>
 
@@ -25,6 +26,22 @@ export const ProductDetailOverview = () => {
         </p>
         <p className="info-price">Giá chỉ từ: {price}₫ </p>
         <p className="info-oldPrice">Giá gốc: {oldPrice}₫</p>
+        <div className="info-quantity">
+          <h5>Số lượng:</h5>
+          <button
+            onClick={() => {
+              if (quantity <= 1) {
+                setQuantity(quantity);
+              } else if (quantity > 1) {
+                setQuantity(quantity - 1);
+              }
+            }}
+          >
+            -
+          </button>
+          <span>{quantity}</span>
+          <button onClick={() => setQuantity(quantity + 1)}>+</button>
+        </div>
         <div className="info-button">
           <button>Thêm vào giỏ hàng</button>
         </div>

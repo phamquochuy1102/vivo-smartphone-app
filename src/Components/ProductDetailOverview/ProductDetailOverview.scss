@@ -86,6 +86,28 @@
         line-height: 24px;
       }
     }
+    .info-quantity {
+      margin-top: 40px;
+      button {
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        border: 1px solid gray;
+        font: {
+          size: 20px;
+          weight: 500;
+        }
+        line-height: 30px;
+      }
+      span {
+        margin: 0 10px;
+        font: {
+          size: 20px;
+          weight: 500;
+        }
+        line-height: 30px;
+      }
+    }
     .info-button {
       margin-top: 40px;
       button {
