@@ -15,7 +15,8 @@
     img {
       height: 500px;
       @include mobile {
-        height: 250px;
+        height: 250px !important;
+        width: 300px !important;
         margin-bottom: 40px;
       }
       @include tablet {

@@ -1,14 +1,18 @@
 import React from "react";
 import { useLocation } from "react-router";
 import "./ProductDetailOverview.scss";
+import ReactImageZoom from "react-image-zoom";
 
 export const ProductDetailOverview = () => {
   const { state } = useLocation();
   const { image, name, price, oldPrice } = state;
+  const props = { height: 500, zoomWidth: 300, img: image };
+
   return (
     <div className="product-detail">
       <div className="product-detail__image">
-        <img src={image} alt="product" />
+        {/* <img src={image} alt="product" /> */}
+        <ReactImageZoom {...props} />
       </div>
 
       <div className="product-detail__info">
