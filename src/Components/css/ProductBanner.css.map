@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACE,eADa,CACb,GAAG,CAAC;EACF,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;CACd",
-    "sources": [
-        "../ProductBanner/ProductBanner.scss"
-    ],
-    "names": [],
-    "file": "ProductBanner.css"
-}

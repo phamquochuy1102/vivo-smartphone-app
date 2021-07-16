@@ -1,0 +1,20 @@
+.product-detail__technicalSpecifications {
+  width: 90%;
+  margin: 0 auto 40px;
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  h3 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+}
