@@ -1,3 +1,5 @@
 export const actionTypes = {
   FILTER_PRODUCTS: "FILTER_PRODUCTS",
+  ADD_TO_CART: "ADD_TO_CART",
+  REMOVE_FROM_CART: "REMOVE_FROM_CART",
 };

@@ -37,6 +37,7 @@ const Product = ({ product }) => {
             screen,
             insideMemory,
             ram,
+            product,
           },
         });
       }}

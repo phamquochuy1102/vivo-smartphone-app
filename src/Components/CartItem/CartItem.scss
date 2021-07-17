@@ -1,0 +1,118 @@
+@import "./../../scss/mixins.scss";
+.cartItem-list {
+  margin: 100px;
+  @include mobile {
+    margin: 80px 20px 20px;
+  }
+  .order {
+    text-align: right;
+
+    h4 {
+      margin-top: 40px;
+      color: red;
+      span {
+        color: black;
+      }
+      @include mobile {
+        font-size: 20px;
+      }
+    }
+    button {
+      padding: 10px 100px;
+      margin-top: 20px;
+      border-radius: 10px;
+      background-color: rgb(1, 77, 219);
+      color: white;
+      border: 1px solid white;
+      transition: 0.5s ease-in-out;
+      font-size: 18px;
+      &:hover {
+        opacity: 0.8;
+      }
+      @include mobile {
+        font-size: 14px;
+        padding: 6px 18px;
+      }
+    }
+  }
+
+  .cartItem-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    margin-top: 20px;
+    i {
+      font-size: 20px;
+      cursor: pointer;
+    }
+    @include mobile {
+      display: block;
+    }
+    .cartItem-info {
+      display: flex;
+      justify-content: center;
+      @include mobile {
+        display: block;
+      }
+      &__image {
+        margin-right: 40px;
+        text-align: center;
+        img {
+          height: 120px;
+        }
+        @include mobile {
+          margin-bottom: 20px;
+        }
+      }
+
+      &__name {
+        font: {
+          size: 18px;
+          weight: 500;
+        }
+        line-height: 18px;
+      }
+      .price {
+        margin-right: 40px;
+        font-weight: 500;
+        @include mobile {
+          display: block;
+        }
+        @include tablet {
+          display: block;
+        }
+      }
+      .quantity {
+        margin-right: 40px;
+        @include mobile {
+          display: block;
+        }
+        @include tablet {
+          display: block;
+        }
+      }
+      .intoMoney {
+        color: red;
+        font-weight: 500;
+        @include mobile {
+          display: block;
+        }
+        @include tablet {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.cart-empty {
+  text-align: center;
+  img {
+    width: 80%;
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
