@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Navbar = () => {
+const Navbar = ({ cartItem }) => {
   const [modal, setModal] = useState(false);
   const openModal = () => {
     setModal(true);
@@ -13,7 +14,6 @@ const Navbar = () => {
   const displayModal = {
     display: "block",
   };
-
   return (
     <div className="navbar-container">
       <div className="navbar-list__mobile" onClick={openModal}>
@@ -51,6 +51,9 @@ const Navbar = () => {
         <Link to="/cart">
           {" "}
           <i class="fas fa-shopping-cart"></i>{" "}
+          <div className="navbar-cart__quantity">
+            {cartItem.reduce((total, current) => total + current.quantity, 0)}
+          </div>
         </Link>
       </div>
 
@@ -81,4 +84,8 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+  cartItem: state.cartReducer.cart,
+});
+
+export default connect(mapStateToProps)(Navbar);

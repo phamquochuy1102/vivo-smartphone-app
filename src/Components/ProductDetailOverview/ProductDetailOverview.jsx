@@ -3,10 +3,12 @@ import { useLocation } from "react-router";
 import "./ProductDetailOverview.scss";
 import ReactImageZoom from "react-image-zoom";
 import { useState } from "react";
+import { addToCart } from "../../redux/actions/cartAction";
+import { connect } from "react-redux";
 
-export const ProductDetailOverview = () => {
+const ProductDetailOverview = ({ addToCart }) => {
   const { state } = useLocation();
-  const { image, name, price, oldPrice } = state;
+  const { image, name, price, oldPrice, product } = state;
   const props = { height: 500, zoomWidth: 300, img: image };
   const [quantity, setQuantity] = useState(1);
 
@@ -43,9 +45,15 @@ export const ProductDetailOverview = () => {
           <button onClick={() => setQuantity(quantity + 1)}>+</button>
         </div>
         <div className="info-button">
-          <button>Thêm vào giỏ hàng</button>
+          <button onClick={() => addToCart({ ...product, quantity })}>
+            Thêm vào giỏ hàng
+          </button>
         </div>
       </div>
     </div>
   );
 };
+
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps, { addToCart })(ProductDetailOverview);
