@@ -3,9 +3,14 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import Product from "./../Product/Product";
 import "./ProductsList.scss";
+import { fetchProducts } from "../../redux/actions/productsAction";
 import { filterProducts } from "../../redux/actions/productsAction";
+import { useEffect } from "react";
 
-const ProductsList = ({ products, filterProducts }) => {
+const ProductsList = ({ products, filterProducts, fetchProducts }) => {
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
   const activeStyle = {
     color: "rgb(1, 77, 219)",
     fontWeight: "500",
@@ -88,4 +93,6 @@ const mapStateToProps = (state) => ({
   products: state.productsReducer.filterProducts,
 });
 
-export default connect(mapStateToProps, { filterProducts })(ProductsList);
+export default connect(mapStateToProps, { filterProducts, fetchProducts })(
+  ProductsList
+);
