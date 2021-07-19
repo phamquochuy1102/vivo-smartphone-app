@@ -5,6 +5,7 @@ import Products from "./Containers/Products";
 import ProductDetail from "./Containers/ProductDetail";
 import ScrollToTop from "./ScrollToTop";
 import ShoppingCart from "./Containers/ShoppingCart";
+import Login from "./Containers/Login/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/products" component={Products} />
           <Route path="/product-detail" component={ProductDetail} />
           <Route path="/cart" component={ShoppingCart} />
+          <Route path="/login" component={Login} />
         </Switch>
       </div>
     </Router>

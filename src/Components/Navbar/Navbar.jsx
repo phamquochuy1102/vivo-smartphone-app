@@ -47,6 +47,14 @@ const Navbar = ({ cartItem }) => {
           </li>
         </ul>
       </div>
+      <div className="navbar-auth">
+        <div className="navbar-login">
+          <Link to="/login">Đăng nhập</Link>
+        </div>
+        <div className="navbar-register">
+          <Link to="/register">Đăng ký</Link>
+        </div>
+      </div>
       <div className="navbar-cart">
         <Link to="/cart">
           {" "}
