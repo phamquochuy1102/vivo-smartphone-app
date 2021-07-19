@@ -15,7 +15,7 @@ const CartItem = ({ cartItem, reomoveFromCart }) => {
                 <img src={item.image} alt="cart item" />
               </div>
               <div>
-                <p className="cartItem-info__name">{item.name}</p>
+                <p className="cartItem-info__name">Điện thoại {item.name}</p>
                 <p>
                   <span className="price">Đơn giá: {item.price}đ </span>{" "}
                   <span className="quantity">Số lượng: {item.quantity}</span>
