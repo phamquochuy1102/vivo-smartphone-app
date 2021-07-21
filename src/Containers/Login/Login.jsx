@@ -23,15 +23,13 @@ const Login = ({ userInfo, errorMessage, loading }) => {
         pathname: "/",
       });
     }
-  }, [userInfo]);
+  }, [userInfo, history]);
 
   return (
     <div className="login">
       <form className="loginContainer" onSubmit={handleSubmit}>
         <h1>ĐĂNG NHẬP</h1>
-        {loading && (
-          <LoadingOverlay active={true} spinner={true}></LoadingOverlay>
-        )}
+
         {errorMessage ? <p className="errorMessage">{errorMessage}</p> : null}
         <label htmlFor="">Email của bạn</label>
         <input
@@ -41,6 +39,9 @@ const Login = ({ userInfo, errorMessage, loading }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        {loading && (
+          <LoadingOverlay active={true} spinner={true}></LoadingOverlay>
+        )}
         <label htmlFor="">Mật khẩu</label>
         <input
           type="password"
