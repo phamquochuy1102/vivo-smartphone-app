@@ -45,6 +45,17 @@
       display: none;
     }
   }
+  .navbar-userName {
+    color: white;
+    a {
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
   .navbar-auth {
     display: flex;
     @include mobile {

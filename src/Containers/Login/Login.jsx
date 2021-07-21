@@ -1,72 +1,65 @@
-// import React, { useEffect } from "react";
-// import { useState } from "react";
-// import Homepage from "../Homepage";
-// import "./Login.scss";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { connect, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import LoadingOverlay from "react-loading-overlay";
+import { login } from "../../redux/actions/userAction";
+import "./Login.scss";
 
-// const Login = () => {
-//   const [user, setUser] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [emailError, setEmailError] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [passwordError, setPasswordError] = useState("");
-//   const [hasAccount, setHasAccount] = useState(false);
+const Login = ({ userInfo, errorMessage, loading }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
 
-//   const clearInputs = () => {
-//     setEmail("");
-//     setPassword("");
-//   };
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(email, password));
+  };
 
-//   const clearErrors = () => {
-//     setEmailError("");
-//     setPasswordError("");
-//   };
+  useEffect(() => {
+    if (userInfo) {
+      history.push({
+        pathname: "/",
+      });
+    }
+  }, [userInfo]);
 
-//   return (
-//     <div className="login">
-//       <div className="loginContainer">
-//         <label htmlFor="">Email của bạn</label>
-//         <input
-//           type="email"
-//           autoFocus
-//           required
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//         />
-//         <p className="errorMsg">{emailError}</p>
-//         <label htmlFor="">Mật khẩu</label>
-//         <input
-//           type="password"
-//           required
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//         />
-//         <p className="errorMsg">{passwordError}</p>
-//         <div className="btnContainer">
-//           {hasAccount ? (
-//             <>
-//               {" "}
-//               <button onClick={handleLogin}>Đăng nhập</button>
-//               <p>
-//                 Bạn chưa có tài khoản?{" "}
-//                 <span onClick={() => setHasAccount(!hasAccount)}>Đăng ký</span>
-//               </p>
-//             </>
-//           ) : (
-//             <>
-//               {" "}
-//               <button onClick={handleSignup}>Đăng ký</button>
-//               <p>
-//                 Bạn đã có tài khoản?{" "}
-//                 <span onClick={() => setHasAccount(!hasAccount)}>
-//                   Đăng nhập{" "}
-//                 </span>
-//               </p>
-//             </>
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div className="login">
+      <form className="loginContainer" onSubmit={handleSubmit}>
+        <h1>ĐĂNG NHẬP</h1>
+        {loading && (
+          <LoadingOverlay active={true} spinner={true}></LoadingOverlay>
+        )}
+        {errorMessage ? <p className="errorMessage">{errorMessage}</p> : null}
+        <label htmlFor="">Email của bạn</label>
+        <input
+          type="email"
+          autoFocus
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label htmlFor="">Mật khẩu</label>
+        <input
+          type="password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div className="btnContainer" type="submit">
+          <button>Login</button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
-// export default Login;
+const mapStateToProps = (state) => ({
+  userInfo: state.userReducer.userInfo,
+  errorMessage: state.userReducer.error,
+  loading: state.userReducer.loading,
+});
+
+export default connect(mapStateToProps)(Login);
