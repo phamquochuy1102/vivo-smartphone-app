@@ -3,7 +3,7 @@ import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-const Navbar = ({ cartItem }) => {
+const Navbar = ({ cartItem, userInfo }) => {
   const [modal, setModal] = useState(false);
   const openModal = () => {
     setModal(true);
@@ -14,6 +14,7 @@ const Navbar = ({ cartItem }) => {
   const displayModal = {
     display: "block",
   };
+
   return (
     <div className="navbar-container">
       <div className="navbar-list__mobile" onClick={openModal}>
@@ -47,14 +48,22 @@ const Navbar = ({ cartItem }) => {
           </li>
         </ul>
       </div>
-      <div className="navbar-auth">
-        <div className="navbar-login">
-          <Link to="/login">Đăng nhập</Link>
+
+      {userInfo ? (
+        <div className="navbar-userName">
+          Xin chào, <Link to="#">{userInfo.name}</Link>
         </div>
-        <div className="navbar-register">
-          <Link to="/register">Đăng ký</Link>
+      ) : (
+        <div className="navbar-auth">
+          <div className="navbar-login">
+            <Link to="/login">Đăng nhập</Link>
+          </div>
+          <div className="navbar-register">
+            <Link to="/register">Đăng ký</Link>
+          </div>
         </div>
-      </div>
+      )}
+
       <div className="navbar-cart">
         <Link to="/cart">
           {" "}
@@ -94,6 +103,7 @@ const Navbar = ({ cartItem }) => {
 
 const mapStateToProps = (state) => ({
   cartItem: state.cartReducer.cart,
+  userInfo: state.userReducer.userInfo,
 });
 
 export default connect(mapStateToProps)(Navbar);
