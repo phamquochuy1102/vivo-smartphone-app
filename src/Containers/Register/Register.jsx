@@ -4,38 +4,48 @@ import { connect, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
-import { login } from "../../redux/actions/userAction";
-import "./Login.scss";
+import { register } from "./../../redux/actions/userAction";
+import "./Register.scss";
 
-const Login = ({ userInfo, errorMessage, loading }) => {
+const Register = ({ userRegister, errorMessage, loading }) => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
 
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    dispatch(register(email, password, name));
   };
 
   useEffect(() => {
-    if (userInfo) {
+    if (userRegister) {
+      alert("Đăng ký tài khoản thành công!");
       history.push({
-        pathname: "/",
+        pathname: "/login",
       });
     }
-  }, [userInfo, history]);
+  }, [userRegister, history]);
 
   return (
-    <div className="login">
-      <form className="loginContainer" onSubmit={handleSubmit}>
-        <h1>ĐĂNG NHẬP</h1>
+    <div className="register">
+      <form className="registerContainer" onSubmit={handleSubmit}>
+        <h1>ĐĂNG KÝ TÀI KHOẢN</h1>
 
         {errorMessage ? <p className="errorMessage">{errorMessage}</p> : null}
+        <label htmlFor="">Họ tên</label>
+        <input
+          type="text"
+          autoFocus
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Ex: Nguyen Van A"
+        />
         <label htmlFor="">Email của bạn</label>
         <input
           type="email"
-          autoFocus
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -52,13 +62,14 @@ const Login = ({ userInfo, errorMessage, loading }) => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Mật khẩu của bạn"
         />
-        <div className="hasAccount">
+
+        <div className="newUser">
           <p>
-            Chưa có tài khoản? <Link to="/register">Đăng ký</Link>
+            Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
           </p>
         </div>
         <div className="btnContainer" type="submit">
-          <button>ĐĂNG NHẬP</button>
+          <button>ĐĂNG KÝ</button>
         </div>
       </form>
     </div>
@@ -66,9 +77,9 @@ const Login = ({ userInfo, errorMessage, loading }) => {
 };
 
 const mapStateToProps = (state) => ({
-  userInfo: state.userReducer.userInfo,
   errorMessage: state.userReducer.error,
   loading: state.userReducer.loading,
+  userRegister: state.userReducer.userRegister,
 });
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(Register);

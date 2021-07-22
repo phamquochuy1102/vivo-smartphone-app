@@ -6,6 +6,6 @@ export const addToCart = (product) => (dispatch) => {
   alert(" ☑ Thêm vào giỏ hàng thành công!");
 };
 
-export const reomoveFromCart = (id) => (dispatch) => {
+export const removeFromCart = (id) => (dispatch) => {
   dispatch(actionCreator(actionTypes.REMOVE_FROM_CART, id));
 };

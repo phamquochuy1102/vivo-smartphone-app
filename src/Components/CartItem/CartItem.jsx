@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./CartItem.scss";
-import { reomoveFromCart } from "../../redux/actions/cartAction";
+import { removeFromCart } from "../../redux/actions/cartAction";
 
-const CartItem = ({ cartItem, reomoveFromCart }) => {
+const CartItem = ({ cartItem, removeFromCart }) => {
   return (
     <div className="cartItem-list">
       <h3>Giỏ hàng</h3>
@@ -25,7 +25,7 @@ const CartItem = ({ cartItem, reomoveFromCart }) => {
                 </p>
               </div>
             </div>
-            <div onClick={() => reomoveFromCart(item.id)}>
+            <div onClick={() => removeFromCart(item.id)}>
               <i class="far fa-trash-alt"></i>
             </div>
           </div>
@@ -57,4 +57,4 @@ const mapStateToProps = (state) => ({
   cartItem: state.cartReducer.cart,
 });
 
-export default connect(mapStateToProps, { reomoveFromCart })(CartItem);
+export default connect(mapStateToProps, { removeFromCart })(CartItem);

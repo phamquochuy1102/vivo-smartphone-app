@@ -6,6 +6,7 @@ import ProductDetail from "./Containers/ProductDetail";
 import ScrollToTop from "./ScrollToTop";
 import ShoppingCart from "./Containers/ShoppingCart";
 import Login from "./Containers/Login/Login";
+import Register from "./Containers/Register/Register";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/product-detail" component={ProductDetail} />
           <Route path="/cart" component={ShoppingCart} />
           <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
         </Switch>
       </div>
     </Router>

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
+import { logout } from "../../redux/actions/userAction";
 
 const Navbar = ({ cartItem, userInfo }) => {
   const [modal, setModal] = useState(false);
@@ -13,6 +14,10 @@ const Navbar = ({ cartItem, userInfo }) => {
   };
   const displayModal = {
     display: "block",
+  };
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
   };
 
   return (
@@ -52,6 +57,13 @@ const Navbar = ({ cartItem, userInfo }) => {
       {userInfo ? (
         <div className="navbar-userName">
           Xin chào, <Link to="#">{userInfo.name}</Link>
+          <div className="userOptions">
+            <ul>
+              <li onClick={handleLogout}>
+                <i class="fas fa-sign-out-alt"></i> Đăng xuất
+              </li>
+            </ul>
+          </div>
         </div>
       ) : (
         <div className="navbar-auth">
