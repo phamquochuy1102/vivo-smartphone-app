@@ -39,6 +39,7 @@ const Login = ({ userInfo, errorMessage, loading }) => {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Ex: user@example.com"
         />
         {loading && (
           <LoadingOverlay active={true} spinner={true}></LoadingOverlay>
@@ -49,6 +50,7 @@ const Login = ({ userInfo, errorMessage, loading }) => {
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Ít nhất 6 ký tự bao gồm chữ số, ký tự đặc biệt,..."
         />
         <div className="hasAccount">
           <p>
