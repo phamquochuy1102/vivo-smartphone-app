@@ -3,6 +3,7 @@ import { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import LoadingOverlay from "react-loading-overlay";
+import { Link } from "react-router-dom";
 import { login } from "../../redux/actions/userAction";
 import "./Login.scss";
 
@@ -49,6 +50,11 @@ const Login = ({ userInfo, errorMessage, loading }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <div className="hasAccount">
+          <p>
+            Chưa có tài khoản? <Link to="/register">Đăng ký</Link>
+          </p>
+        </div>
         <div className="btnContainer" type="submit">
           <button>Login</button>
         </div>
