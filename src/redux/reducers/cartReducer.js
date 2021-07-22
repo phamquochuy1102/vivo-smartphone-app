@@ -4,6 +4,7 @@ const initialState = {
   cart: localStorage.getItem("cartItem")
     ? JSON.parse(localStorage.getItem("cartItem"))
     : [],
+  addStatus: false,
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -24,6 +25,7 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: cloneCart,
+        addStatus: true,
       };
     case actionTypes.REMOVE_FROM_CART:
       const newCart = [...state.cart];

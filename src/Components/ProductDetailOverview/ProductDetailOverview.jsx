@@ -5,12 +5,28 @@ import ReactImageZoom from "react-image-zoom";
 import { useState } from "react";
 import { addToCart } from "../../redux/actions/cartAction";
 import { connect } from "react-redux";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
-const ProductDetailOverview = ({ addToCart }) => {
+const ProductDetailOverview = ({ addToCart, addStatus }) => {
   const { state } = useLocation();
   const { image, name, price, oldPrice, product } = state;
   const props = { height: 500, zoomWidth: 300, img: image };
   const [quantity, setQuantity] = useState(1);
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const createNotification = (type) => {
+    return () => {
+      if (type === "success") {
+        NotificationManager.success("Thêm thành công", "Giỏ hàng");
+      }
+    };
+  };
 
   return (
     <div className="product-detail">
@@ -26,8 +42,8 @@ const ProductDetailOverview = ({ addToCart }) => {
           lý mạnh mẽ hơn mà vẫn giữ được thiết kế siêu mỏng và cụm camera chụp
           đẹp đáng kinh ngạc.
         </p>
-        <p className="info-price">Giá chỉ từ: {price}₫ </p>
-        <p className="info-oldPrice">Giá gốc: {oldPrice}₫</p>
+        <p className="info-price">Giá chỉ từ: {numberWithCommas(price)}₫ </p>
+        <p className="info-oldPrice">Giá gốc: {numberWithCommas(oldPrice)}₫</p>
         <div className="info-quantity">
           <h5>Số lượng:</h5>
           <button
@@ -44,16 +60,28 @@ const ProductDetailOverview = ({ addToCart }) => {
           <span>{quantity}</span>
           <button onClick={() => setQuantity(quantity + 1)}>+</button>
         </div>
-        <div className="info-button">
-          <button onClick={() => addToCart({ ...product, quantity })}>
+        <div
+          className="info-button"
+          onClick={() => {
+            addToCart({ ...product, quantity });
+          }}
+        >
+          <button onClick={createNotification("success")}>
             Thêm vào giỏ hàng
           </button>
         </div>
       </div>
+      <NotificationContainer />
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  addStatus: state.cartReducer.addStatus,
+});
 
 export default connect(mapStateToProps, { addToCart })(ProductDetailOverview);
+/*() => {
+              addToCart({ ...product, quantity });
+              createNotification("success");
+            } */
