@@ -1,11 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
 import "./CartItem.scss";
 import { removeFromCart } from "../../redux/actions/cartAction";
 
 const CartItem = ({ cartItem, removeFromCart }) => {
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+  const createNotification = (type) => {
+    return () => {
+      if (type === "success") {
+        NotificationManager.success("Thêm thành công", "Giỏ hàng");
+      } else if (type === "warning") {
+        NotificationManager.warning("Đã xóa sản phẩm", "Giỏ hàng", 3000);
+      }
+    };
   };
   return (
     <div className="cartItem-list">
@@ -30,8 +44,10 @@ const CartItem = ({ cartItem, removeFromCart }) => {
                 </p>
               </div>
             </div>
-            <div onClick={() => removeFromCart(item.id)}>
-              <i class="far fa-trash-alt"></i>
+            <div onClick={createNotification("warning")}>
+              <div onClick={() => removeFromCart(item.id)}>
+                Xóa <i class="far fa-trash-alt"></i>
+              </div>
             </div>
           </div>
         ))
@@ -53,9 +69,10 @@ const CartItem = ({ cartItem, removeFromCart }) => {
             )}
             đ{" "}
           </h4>
-          <button>Mua hàng</button>
+          <button>Thanh toán</button>
         </div>
       ) : null}
+      <NotificationContainer />
     </div>
   );
 };

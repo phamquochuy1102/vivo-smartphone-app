@@ -23,7 +23,7 @@ const ProductDetailOverview = ({ addToCart, addStatus }) => {
   const createNotification = (type) => {
     return () => {
       if (type === "success") {
-        NotificationManager.success("Thêm thành công", "Giỏ hàng");
+        NotificationManager.success("Thêm thành công", "Giỏ hàng", 1000);
       }
     };
   };

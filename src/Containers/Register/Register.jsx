@@ -32,7 +32,6 @@ const Register = ({ userRegister, errorMessage, loading }) => {
     <div className="register">
       <form className="registerContainer" onSubmit={handleSubmit}>
         <h1>ĐĂNG KÝ TÀI KHOẢN</h1>
-
         {errorMessage ? <p className="errorMessage">{errorMessage}</p> : null}
         <label htmlFor="">Họ tên</label>
         <input
