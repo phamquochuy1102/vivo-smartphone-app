@@ -1,0 +1,40 @@
+@import "./../../scss/mixins.scss";
+
+.adddress-info {
+  text-align: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 40px;
+  width: 600px;
+  margin: 20px auto;
+  h1 {
+    font: {
+      size: 30px;
+      weight: 500;
+    }
+    margin-bottom: 40px;
+    line-height: 20px;
+  }
+  input {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 500px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 18px;
+  }
+  button {
+    padding: 8px 100px;
+    border-radius: 40px;
+    background-color: rgb(1, 77, 219);
+    color: white;
+    border: 1px solid white;
+    transition: 0.5s ease-in-out;
+    font-size: 18px;
+    &:hover {
+      opacity: 0.8;
+    }
+    @include mobile {
+      font-size: 14px;
+      padding: 6px 18px;
+    }
+  }
+}

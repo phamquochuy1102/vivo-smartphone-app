@@ -1,0 +1,53 @@
+@import "./../../scss/mixins.scss";
+
+.payment {
+  margin: 0 100px;
+  h2 {
+    font: {
+      size: 22px;
+      weight: 700;
+    }
+  }
+  .payment-deliveryMethod {
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px gray solid;
+    border-radius: 20px;
+    input {
+      margin-right: 20px;
+    }
+    #giaoTietKiem {
+      margin-bottom: 50px;
+    }
+    label {
+      img {
+        width: 50px;
+        margin-right: 20px;
+      }
+    }
+  }
+  .payment-paymentMethod {
+    @extend .payment-deliveryMethod;
+  }
+}
+
+.button {
+  text-align: center;
+  padding-bottom: 30px;
+  button {
+    padding: 8px 100px;
+    border-radius: 40px;
+    background-color: rgb(1, 77, 219);
+    color: white;
+    border: 1px solid white;
+    transition: 0.5s ease-in-out;
+    font-size: 18px;
+    &:hover {
+      opacity: 0.8;
+    }
+    @include mobile {
+      font-size: 14px;
+      padding: 6px 18px;
+    }
+  }
+}

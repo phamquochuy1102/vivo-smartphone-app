@@ -40,7 +40,7 @@ const Register = ({ userRegister, errorMessage, loading }) => {
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Ex: Nguyen Van A"
+          placeholder="Ex: Pham Quoc Huy"
         />
         <label htmlFor="">Email của bạn</label>
         <input
@@ -76,7 +76,7 @@ const Register = ({ userRegister, errorMessage, loading }) => {
 };
 
 const mapStateToProps = (state) => ({
-  errorMessage: state.userReducer.error,
+  errorMessage: state.userReducer.errorRegister,
   loading: state.userReducer.loading,
   userRegister: state.userReducer.userRegister,
 });

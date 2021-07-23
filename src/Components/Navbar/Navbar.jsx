@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
 import { logout } from "../../redux/actions/userAction";
 
 const Navbar = ({ cartItem, userInfo }) => {
@@ -18,6 +23,13 @@ const Navbar = ({ cartItem, userInfo }) => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
+  };
+  const createNotification = (type) => {
+    return () => {
+      if (type === "info") {
+        NotificationManager.info("Bạn đã đăng xuất!", "Hệ thống", 2000);
+      }
+    };
   };
 
   return (
@@ -60,7 +72,9 @@ const Navbar = ({ cartItem, userInfo }) => {
           <div className="userOptions">
             <ul>
               <li onClick={handleLogout}>
-                <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                <div onClick={createNotification("info")}>
+                  <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                </div>
               </li>
             </ul>
           </div>
@@ -80,9 +94,11 @@ const Navbar = ({ cartItem, userInfo }) => {
         <Link to="/cart">
           {" "}
           <i class="fas fa-shopping-cart"></i>{" "}
-          <div className="navbar-cart__quantity">
-            {cartItem.reduce((total, current) => total + current.quantity, 0)}
-          </div>
+          {cartItem.length !== 0 ? (
+            <div className="navbar-cart__quantity">
+              {cartItem.reduce((total, current) => total + current.quantity, 0)}
+            </div>
+          ) : null}
         </Link>
       </div>
 
@@ -109,6 +125,7 @@ const Navbar = ({ cartItem, userInfo }) => {
           </li>
         </ul>
       </div>
+      <NotificationContainer />
     </div>
   );
 };

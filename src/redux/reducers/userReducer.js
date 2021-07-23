@@ -21,7 +21,7 @@ const userReducer = (state = initialState, action) => {
     case actionTypes.USER_REGISTER_FAIL:
       return {
         loading: false,
-        error: action.payload,
+        errorRegister: action.payload,
       };
     case actionTypes.USER_LOGIN:
       return {
