@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   NotificationContainer,
   NotificationManager,
@@ -45,7 +46,10 @@ const CartItem = ({ cartItem, removeFromCart }) => {
               </div>
             </div>
             <div onClick={createNotification("warning")}>
-              <div onClick={() => removeFromCart(item.id)}>
+              <div
+                onClick={() => removeFromCart(item.id)}
+                className="cart-remove-item"
+              >
                 Xóa <i class="far fa-trash-alt"></i>
               </div>
             </div>
@@ -69,7 +73,10 @@ const CartItem = ({ cartItem, removeFromCart }) => {
             )}
             đ{" "}
           </h4>
-          <button>Thanh toán</button>
+          <Link to="/shipping">
+            {" "}
+            <button>Thanh toán</button>
+          </Link>
         </div>
       ) : null}
       <NotificationContainer />

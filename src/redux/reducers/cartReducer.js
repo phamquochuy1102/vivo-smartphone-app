@@ -5,6 +5,12 @@ const initialState = {
     ? JSON.parse(localStorage.getItem("cartItem"))
     : [],
   addStatus: false,
+  shippingAddress: localStorage.getItem("shippingAddress")
+    ? JSON.parse(localStorage.getItem("shippingAddress"))
+    : {},
+  payAndDeliveryMethod: localStorage.getItem("payment")
+    ? JSON.parse(localStorage.getItem("payment"))
+    : {},
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -36,6 +42,21 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: newCart.filter((item) => item.id !== action.payload),
+      };
+    case actionTypes.CART_SAVE_SHIPPING_ADDRESS:
+      return {
+        ...state,
+        shippingAddress: action.payload,
+      };
+    case actionTypes.CART_SAVE_PAYMENT_DELIVERY_METHOD:
+      return {
+        ...state,
+        payAndDeliveryMethod: action.payload,
+      };
+    case actionTypes.EMPTY_CART:
+      return {
+        ...state,
+        cart: [],
       };
     default:
       return state;

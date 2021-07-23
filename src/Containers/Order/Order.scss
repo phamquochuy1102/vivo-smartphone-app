@@ -1,0 +1,131 @@
+@import "./../../scss/mixins.scss";
+
+.order-container {
+  display: flex;
+  margin: 20px 50px;
+  .left {
+    flex: 1.5;
+    margin-right: 20px;
+    .order-address {
+      padding: 20px 10px;
+      border-radius: 10px;
+      border: 1px solid gray;
+      background-color: #f8f8f8;
+      margin-bottom: 30px;
+      h5 {
+        font: {
+          size: 25px;
+          weight: 700;
+        }
+        line-height: 22px;
+      }
+      .order-name {
+        font: {
+          size: 20px;
+          weight: 500;
+        }
+        margin-bottom: 20px;
+        line-height: 20px;
+      }
+    }
+    .order-paymentAndDelivery {
+      padding: 20px 10px;
+      border-radius: 10px;
+      border: 1px solid gray;
+      background-color: #f8f8f8;
+      margin-bottom: 30px;
+      h5 {
+        font: {
+          size: 22px;
+          weight: 700;
+        }
+        line-height: 22px;
+        span {
+          font: {
+            size: 20px;
+            weight: 500;
+          }
+          line-height: 22px;
+        }
+      }
+    }
+    .order-products {
+      padding: 20px 10px;
+      border-radius: 10px;
+      border: 1px solid gray;
+      background-color: #f8f8f8;
+      margin-bottom: 30px;
+      h5 {
+        font: {
+          size: 22px;
+          weight: 700;
+        }
+        line-height: 22px;
+        margin-bottom: 20px;
+      }
+      .order-products__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        img {
+          width: 100px;
+        }
+      }
+    }
+  }
+  .right {
+    flex: 1;
+    height: 280px;
+    padding: 20px 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: #f8f8f8;
+    h5 {
+      font: {
+        size: 22px;
+        weight: 700;
+      }
+      line-height: 22px;
+      margin-bottom: 20px;
+    }
+    .summary-items {
+      display: flex;
+      justify-content: space-between;
+    }
+    .summary-shipFee {
+      @extend .summary-items;
+    }
+    .summary-total {
+      @extend .summary-items;
+      .total {
+        font: {
+          size: 22px;
+          weight: 500;
+        }
+        line-height: 22px;
+        color: red;
+      }
+    }
+    .order-btn {
+      text-align: center;
+      margin-top: 20px;
+      button {
+        padding: 8px 100px;
+        border-radius: 40px;
+        background-color: rgb(1, 77, 219);
+        color: white;
+        border: 1px solid white;
+        transition: 0.5s ease-in-out;
+        font-size: 18px;
+        &:hover {
+          opacity: 0.8;
+        }
+        @include mobile {
+          font-size: 14px;
+          padding: 6px 18px;
+        }
+      }
+    }
+  }
+}

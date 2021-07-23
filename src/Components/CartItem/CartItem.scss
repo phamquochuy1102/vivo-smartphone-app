@@ -50,6 +50,9 @@
     @include mobile {
       display: block;
     }
+    .cart-remove-item {
+      cursor: pointer;
+    }
     .cartItem-info {
       display: flex;
       justify-content: center;

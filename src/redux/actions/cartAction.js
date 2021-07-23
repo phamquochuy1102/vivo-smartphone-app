@@ -8,3 +8,13 @@ export const addToCart = (product) => (dispatch) => {
 export const removeFromCart = (id) => (dispatch) => {
   dispatch(actionCreator(actionTypes.REMOVE_FROM_CART, id));
 };
+
+export const saveShippingAddress = (data) => (dispatch) => {
+  dispatch(actionCreator(actionTypes.CART_SAVE_SHIPPING_ADDRESS, data));
+  localStorage.setItem("shippingAddress", JSON.stringify(data));
+};
+
+export const savePayAndDeliveryMethod = (data) => (dispatch) => {
+  dispatch(actionCreator(actionTypes.CART_SAVE_PAYMENT_DELIVERY_METHOD, data));
+  localStorage.setItem("payment", JSON.stringify(data));
+};
