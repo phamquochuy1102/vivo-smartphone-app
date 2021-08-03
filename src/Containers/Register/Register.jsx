@@ -6,6 +6,7 @@ import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import { register } from "./../../redux/actions/userAction";
 import "./Register.scss";
+import Navbar from "../../Components/Navbar/Navbar";
 
 const Register = ({ userRegister, errorMessage, loading }) => {
   const [email, setEmail] = useState("");
@@ -29,48 +30,51 @@ const Register = ({ userRegister, errorMessage, loading }) => {
   }, [userRegister, history]);
 
   return (
-    <div className="register">
-      <form className="registerContainer" onSubmit={handleSubmit}>
-        <h1>ĐĂNG KÝ TÀI KHOẢN</h1>
-        {errorMessage ? <p className="errorMessage">{errorMessage}</p> : null}
-        <label htmlFor="">Họ tên</label>
-        <input
-          type="text"
-          autoFocus
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Ex: Pham Quoc Huy"
-        />
-        <label htmlFor="">Email của bạn</label>
-        <input
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Ex: user@example.com"
-        />
-        {loading && (
-          <LoadingOverlay active={true} spinner={true}></LoadingOverlay>
-        )}
-        <label htmlFor="">Mật khẩu</label>
-        <input
-          type="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Mật khẩu của bạn"
-        />
+    <div>
+      <Navbar />
+      <div className="register">
+        <form className="registerContainer" onSubmit={handleSubmit}>
+          <h1>ĐĂNG KÝ TÀI KHOẢN</h1>
+          {errorMessage ? <p className="errorMessage">{errorMessage}</p> : null}
+          <label htmlFor="">Họ tên</label>
+          <input
+            type="text"
+            autoFocus
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Ex: Pham Quoc Huy"
+          />
+          <label htmlFor="">Email của bạn</label>
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Ex: user@example.com"
+          />
+          {loading && (
+            <LoadingOverlay active={true} spinner={true}></LoadingOverlay>
+          )}
+          <label htmlFor="">Mật khẩu</label>
+          <input
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Mật khẩu của bạn"
+          />
 
-        <div className="newUser">
-          <p>
-            Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
-          </p>
-        </div>
-        <div className="btnContainer" type="submit">
-          <button>ĐĂNG KÝ</button>
-        </div>
-      </form>
+          <div className="newUser">
+            <p>
+              Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
+            </p>
+          </div>
+          <div className="btnContainer" type="submit">
+            <button>ĐĂNG KÝ</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

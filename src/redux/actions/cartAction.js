@@ -18,3 +18,8 @@ export const savePayAndDeliveryMethod = (data) => (dispatch) => {
   dispatch(actionCreator(actionTypes.CART_SAVE_PAYMENT_DELIVERY_METHOD, data));
   localStorage.setItem("payment", JSON.stringify(data));
 };
+
+export const order = () => (dispatch) => {
+  dispatch(actionCreator(actionTypes.EMPTY_CART));
+  localStorage.removeItem("cartItem");
+};

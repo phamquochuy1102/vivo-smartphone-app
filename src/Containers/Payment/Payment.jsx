@@ -3,16 +3,21 @@ import Navbar from "../../Components/Navbar/Navbar";
 import CheckoutStep from "../../Components/CheckoutStep/CheckoutStep";
 import "./Payment.scss";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 import { savePayAndDeliveryMethod } from "../../redux/actions/cartAction";
 import { useHistory } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 
-const Payment = () => {
+const Payment = ({ userInfo }) => {
   const [delivery, setDelivery] = useState("Giao hàng tiết kiệm");
   const [payment, setPayment] = useState("Thanh toán bằng tiền mặt");
   const history = useHistory();
   const dispatch = useDispatch();
+  if (!userInfo) {
+    history.push({
+      pathname: "/login",
+    });
+  }
   const handleChangeDelivery = (e) => {
     setDelivery(e.target.value);
   };
@@ -111,4 +116,8 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+const mapStateToProps = (state) => ({
+  userInfo: state.userReducer.userInfo,
+});
+
+export default connect(mapStateToProps)(Payment);
