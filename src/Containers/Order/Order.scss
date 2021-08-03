@@ -76,7 +76,7 @@
   }
   .right {
     flex: 1;
-    height: 280px;
+    height: 300px;
     padding: 20px 10px;
     border-radius: 10px;
     border: 1px solid gray;
@@ -95,9 +95,12 @@
     }
     .summary-shipFee {
       @extend .summary-items;
+      border-bottom: 1px solid gray;
     }
     .summary-total {
       @extend .summary-items;
+      margin-top: 20px;
+      font-size: 22px;
       .total {
         font: {
           size: 22px;

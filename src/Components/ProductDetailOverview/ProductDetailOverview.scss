@@ -13,7 +13,6 @@
   .product-detail__image {
     text-align: center;
     img {
-      height: 500px;
       @include mobile {
         height: 250px !important;
         width: 300px !important;

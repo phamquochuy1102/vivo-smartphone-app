@@ -1,20 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import CheckoutStep from "../../Components/CheckoutStep/CheckoutStep";
 import Footer from "../../Components/Footer/Footer";
 import "./Order.scss";
 import { connect, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createOrder } from "../../redux/actions/orderAction";
-import { actionTypes } from "../../redux/constants";
+import { order } from "../../redux/actions/cartAction";
 
 const Order = ({
   shippingAddress,
   payAndDeliveryMethod,
   cart,
   cartReducer,
-  order,
   success,
+  userInfo,
 }) => {
   const history = useHistory();
   const { fullName, address, phoneNumber, ward, district, city } =
@@ -25,21 +24,22 @@ const Order = ({
     (total, current) => total + current.price * current.quantity,
     0
   );
+  if (!userInfo) {
+    history.push({
+      pathname: "/login",
+    });
+  }
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
   const dispatch = useDispatch();
   const handleOrder = () => {
-    dispatch(createOrder({ ...cartReducer, orderItems: cartReducer.cart }));
+    dispatch(order());
+    history.push({
+      pathname: "/order-success",
+    });
   };
-  useEffect(() => {
-    if (success) {
-      history.push({
-        pathname: `/order/${order._id}`,
-      });
-      dispatch({ type: actionTypes.ORDER_CREATE_RESET });
-    }
-  }, [success, dispatch, order, history]);
+
   return (
     <div>
       <Navbar />
@@ -112,8 +112,8 @@ const mapStateToProps = (state) => ({
   payAndDeliveryMethod: state.cartReducer.payAndDeliveryMethod,
   cart: state.cartReducer.cart,
   cartReducer: state.cartReducer,
-  order: state.orderReducer.order,
   success: state.orderReducer.success,
+  userInfo: state.userReducer.userInfo,
 });
 
 export default connect(mapStateToProps)(Order);

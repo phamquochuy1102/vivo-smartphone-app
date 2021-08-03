@@ -10,7 +10,7 @@ import Register from "./Containers/Register/Register";
 import ShippingAddress from "./Containers/ShippingAddress/ShippingAddress";
 import Payment from "./Containers/Payment/Payment";
 import Order from "./Containers/Order/Order";
-import FollowOrder from "./Containers/FollowOrder/FollowOrder";
+import OrderSuccess from "./Containers/OrderSuccess/OrderSuccess";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           <Route path="/shipping" component={ShippingAddress} />
           <Route path="/payment" component={Payment} />
           <Route exact path="/order" component={Order} />
-          <Route path="/order/abc" component={FollowOrder} />
+          <Route exact path="/order-success" component={OrderSuccess} />
         </Switch>
       </div>
     </Router>
